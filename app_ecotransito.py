@@ -15,7 +15,7 @@ st.title("Sistema EcoTránsito CDMX")
 # 2. Cargar datos
 from pathlib import Path
 
-ruta = Path(__file__).resolve().parent / "cdmx_air_traffic_clean.csv"
+ruta = Path(__file__).resolve().parent / "cdmx_air_traffic_clean..csv"
 
 st.write("Ruta buscada:", str(ruta))
 st.write("¿Existe el archivo?", ruta.exists())
