@@ -16,7 +16,9 @@ st.title("Sistema EcoTránsito CDMX")
 from pathlib import Path
 
 ruta = Path(__file__).resolve().parent / "cdmx_air_traffic_clean.csv"
-df = pd.read_csv(ruta)
+st.write("Ruta buscada:", str(ruta))
+st.write("¿Existe el archivo?", ruta.exists())
+st.write("Archivos disponibles:", [p.name for p in ruta.parent.iterdir()])df = pd.read_csv(ruta)
 # 3. Barra lateral
 st.sidebar.header("Filtros")
 
