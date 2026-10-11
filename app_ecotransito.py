@@ -21,7 +21,17 @@ st.write("Ruta buscada:", str(ruta))
 st.write("¿Existe el archivo?", ruta.exists())
 st.write("Archivos disponibles:", [p.name for p in ruta.parent.iterdir()])
 
-df = pd.read_csv(ruta, sep=",")
+
+df = pd.read_csv(ruta, sep=",", encoding="utf-8-sig")
+
+if len(df.columns) == 1:
+    df = df.iloc[:, 0].str.split(",", expand=True)
+    df.columns = [
+        "ID_Registro", "Timestamp", "Zona_Estacion",
+        "Concentracion_PM25", "Nivel_NO2",
+        "Indice_Trafico_Vehicular", "Estado_Sensor", "Hora_Dia"
+    ]
+
 st.write("Columnas del archivo:", df.columns.tolist())
 st.write("Primeros registros:", df.head())
 # 3. Barra lateral
