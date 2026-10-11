@@ -13,8 +13,10 @@ st.set_page_config(
 st.title("Sistema EcoTránsito CDMX")
 
 # 2. Cargar datos
-df = pd.read_csv("cdmx_air_traffic_clean.csv")
+from pathlib import Path
 
+ruta = Path(__file__).resolve().parent / "cdmx_air_traffic_clean.csv"
+df = pd.read_csv(ruta)
 # 3. Barra lateral
 st.sidebar.header("Filtros")
 
