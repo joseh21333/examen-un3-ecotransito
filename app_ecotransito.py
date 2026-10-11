@@ -21,7 +21,7 @@ st.write("Ruta buscada:", str(ruta))
 st.write("¿Existe el archivo?", ruta.exists())
 st.write("Archivos disponibles:", [p.name for p in ruta.parent.iterdir()])
 
-df = pd.read_csv(ruta)
+df = pd.read_csv(ruta, sep=",")
 st.write("Columnas del archivo:", df.columns.tolist())
 st.write("Primeros registros:", df.head())
 # 3. Barra lateral
