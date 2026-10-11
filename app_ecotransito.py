@@ -34,6 +34,19 @@ if len(df.columns) == 1:
 
 st.write("Columnas del archivo:", df.columns.tolist())
 st.write("Primeros registros:", df.head())
+
+
+# Convertir columnas a números
+columnas_numericas = [
+    "Concentracion_PM25",
+    "Nivel_NO2",
+    "Indice_Trafico_Vehicular",
+    "Hora_Dia"
+]
+
+for columna in columnas_numericas:
+    df[columna] = pd.to_numeric(df[columna], errors="coerce")
+
 # 3. Barra lateral
 st.sidebar.header("Filtros")
 
