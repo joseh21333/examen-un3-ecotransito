@@ -22,6 +22,8 @@ st.write("¿Existe el archivo?", ruta.exists())
 st.write("Archivos disponibles:", [p.name for p in ruta.parent.iterdir()])
 
 df = pd.read_csv(ruta)
+st.write("Columnas del archivo:", df.columns.tolist())
+st.write("Primeros registros:", df.head())
 # 3. Barra lateral
 st.sidebar.header("Filtros")
 
