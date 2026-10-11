@@ -101,9 +101,20 @@ with tab1:
 with tab2:
     st.subheader("Mapa de calor de correlación Spearman")
 
+    columnas = [
+    "Concentracion_PM25",
+    "Nivel_NO2",
+    "Indice_Trafico_Vehicular",
+    "Hora_Dia"
+]
+
+for col in columnas:
+    df_filtrado[col] = pd.to_numeric(
+        df_filtrado[col], errors="coerce"
+    )
     numericas = df_filtrado.select_dtypes(include="number")
 
-    if len(numericas) >= 2:
+    if numericas.shape[1] >= 2:
         correlacion = numericas.corr(method="spearman")
 
         fig2, ax = plt.subplots(figsize=(8, 5))
